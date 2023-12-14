@@ -6,7 +6,7 @@ import subprocess
 
 def iniciar_sesion():
     # Reemplace 'python3' con su comando para ejecutar Python en su sistema
-    comando = 'python3 home.py'
+    comando = 'python3 app/home.py'
     
     try:
         subprocess.Popen(comando, shell=True)
@@ -44,7 +44,7 @@ centro_y = alto_pantalla // 2
 mi_fuente = font.Font(family="KacstQurn", size=12, weight="bold")
 
 # Cargar una imagen de fondo
-ruta_fondo = "img/fondo.jpg"
+ruta_fondo = "app/img/fondo.jpg"
 imagen_fondo = Image.open(ruta_fondo)  # Reemplaza "fondo.jpg" con tu propia imagen
 imagen_fondo = ImageTk.PhotoImage(imagen_fondo)
 
@@ -53,7 +53,7 @@ fondo_label = tk.Label(ventana, image=imagen_fondo)
 fondo_label.place(relwidth=1, relheight=1)
 
 # Cargar un ícono de usuario desde una subcarpeta
-ruta_icono = "img/usuario.png"
+ruta_icono = "app/img/usuario.png"
 imagen_usuario = Image.open(ruta_icono)
 nuevo_tamano = (175, 100)  # Cambia el tamaño a tu preferencia
 imagen_usuario = imagen_usuario.resize(nuevo_tamano)
@@ -76,7 +76,7 @@ boton_iniciar_sesion.grid(row=2, column=0, pady=10)  # Centrar el botón de inic
 boton_iniciar_sesion.grid_forget()
 
 # Etiqueta para mostrar mensajes
-mensaje_label = tk.Label(ventana, text="Welcome")
+mensaje_label = tk.Label(ventana)
 mensaje_label.grid(row=3, column=0, pady=10, padx=centro_x)  # Centrar la etiqueta en la columna 0
 
 # Iniciar el bucle principal de la interfaz gráfica

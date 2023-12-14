@@ -4,7 +4,7 @@ from tkinter import filedialog
 import os
 
 # Ruta de la carpeta deseada
-ruta_carpeta = "../home/docs"
+ruta_carpeta = "home/docs"
 archivo_abierto = None  # Para rastrear el archivo actual
 
 def abrir_archivo():
