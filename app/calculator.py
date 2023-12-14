@@ -16,9 +16,26 @@ def calcular():
     except Exception as e:
         entrada.set("Error")
 
+def convertir_a_fahrenheit():
+    try:
+        celsius = float(entrada.get())
+        fahrenheit = (celsius * 9/5) + 32
+        entrada.set(f"{celsius}°C = {fahrenheit:.2f}°F")
+
+        if celsius < 0:
+            estado = "Estado: Sólido"
+        elif 0 <= celsius <= 100:
+            estado = "Estado: Líquido"
+        else:
+            estado = "Estado: Gaseoso"
+
+        estado_label.config(text=estado)
+    except ValueError:
+        entrada.set("Error")
+
 # Crear la ventana de la calculadora
 ventana = tk.Tk()
-ventana.title("Calculadora")
+ventana.title("Calculadora y Conversor")
 
 # Crear la variable de control para la entrada
 entrada = tk.StringVar()
@@ -58,6 +75,13 @@ ttk.Button(frame_botones, text="C", command=borrar).grid(row=fila, column=0, sti
 
 # Botón de calcular
 ttk.Button(frame_botones, text="=", command=calcular).grid(row=fila, column=1, columnspan=2, sticky="nsew")
+
+# Botón de conversión a Fahrenheit
+ttk.Button(frame_botones, text="°C to °F", command=convertir_a_fahrenheit).grid(row=fila, column=3, sticky="nsew")
+
+# Etiqueta para el estado de la sustancia
+estado_label = ttk.Label(ventana, text="")
+estado_label.grid(row=2, column=0, columnspan=4, pady=10)
 
 # Configurar el diseño de la ventana
 ventana.grid_rowconfigure(0, weight=1)
