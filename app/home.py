@@ -40,6 +40,9 @@ def abrir_video():
 def abrir_visordoc():
     subprocess.Popen(["python3", "app/visor.py"])
 
+def abrir_documentacion():
+    subprocess.Popen(["python3", "app/documentacion.py"])
+
 # Crear la ventana principal del escritorio
 ventana = tk.Tk()
 ventana.title("Simulación de Escritorio")
@@ -58,7 +61,7 @@ fondo_label.place(relwidth=1, relheight=1)
 
 # Crear iconos para las aplicaciones
 aplicaciones = ["Explorador de Archivos", "Calculadora", "Editor de Texto", "Monitor de Recursos", "Navegador Web", 
-                "Reproductor de Audio", "Reproductor de Video", "Visor de Imágenes"]
+                "Reproductor de Audio", "Reproductor de Video", "Visor de Imágenes", "Documentación"]
 
 for i, app in enumerate(aplicaciones):
     if app == "Explorador de Archivos":
@@ -77,6 +80,8 @@ for i, app in enumerate(aplicaciones):
         icono = tk.Button(ventana, text=app, command=abrir_video)
     elif app == "Visor de Imágenes":
         icono = tk.Button(ventana, text=app, command=abrir_visordoc)
+    elif app == "Documentación":
+        icono = tk.Button(ventana, text=app, command=abrir_documentacion)
     else:
         icono = tk.Button(ventana, text=app, command=lambda app=app: abrir_aplicacion(app))
     icono.grid(row=i // 3, column=i % 3)
